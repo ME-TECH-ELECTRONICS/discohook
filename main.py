@@ -11,10 +11,8 @@ def receive_and_forward():
     data = request.json
 
     if data and DISCORD_WEBHOOK_URL:
-        message = {
-            "content": f"Received data: {data}"
-        }
-        requests.post(DISCORD_WEBHOOK_URL, json=message)
+        
+        requests.post(DISCORD_WEBHOOK_URL, json=data)
 
     return {"status": "ok"}, 200
 
